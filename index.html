@@ -3,13 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ikebukuro Kadoebi</title>
+  <meta name="description" content="Ikebukuro Kadoebi is a foreign-friendly soapland in Tokyo, just 5 minutes from Ikebukuro Station. Walk-ins welcome. Credit cards accepted.">
+  <title>Ikebukuro Soapland Kadoebi | Foreign-Friendly Tokyo Soapland</title>
+
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Ikebukuro Kadoebi",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1-43-15 Higashi-Ikebukuro",
+    "addressLocality": "Toshima-ku",
+    "addressRegion": "Tokyo",
+    "postalCode": "170-0013",
+    "addressCountry": "JP"
+  },
+  "telephone": "+81-3-3981-0567",
+  "openingHours": "Mo-Su 09:00-24:00",
+  "url": "https://example.com"
+}
+</script>
+
 
 <style>
 
@@ -201,6 +223,7 @@ body{
 /* Contact */
 .contact{
   padding:30px 20px;
+  background:#fafafa; 
 }
 
 .contact-lead{
@@ -274,6 +297,41 @@ body{
   background:#CABF28;
 }
 
+/* トップへ戻る */
+.back-to-top{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 999px;
+  background: #CABF28;
+  color: #fff;
+  font-weight: 700;
+  line-height: 46px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+  z-index: 9999;
+}
+
+.back-to-top.show{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover{
+  background:#b9ae24; /* 少し濃く */
+  color:#fff;
+}
+
+
 </style>
 
 </head>
@@ -281,9 +339,15 @@ body{
 <body>
   <!-- OFFCANVAS MENU -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="menu" aria-labelledby="menuLabel">
-  <div class="offcanvas-header">
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
+<div class="offcanvas-header">
+  <h5 class="offcanvas-title visually-hidden" id="menuLabel">Menu</h5>
+  <button type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close">
+  </button>
+</div>
+
 
   <div class="offcanvas-body">
     <div class="list-group list-group-flush">
@@ -310,7 +374,6 @@ body{
 
     <!-- 右：Instagram + ハンバーガー -->
     <div class="d-flex align-items-center gap-3">
-      <a href="#" class="text-decoration-none text-dark">Instagram</a>
 
       <button class="btn p-0 border-0"
               type="button"
@@ -342,15 +405,17 @@ body{
   <!-- ● 画像 -->
   <div class="carousel-inner">
 
-  <div class="carousel-item active">
-    <a href="https://www.kadoebi.co.jp/ikekado/cast_detail-5069.html">
-      <img src="img/banner.jpg" alt="">
-    </a>
-  </div>
+<div class="carousel-item active">
+  <a href="https://www.kadoebi.co.jp/ikekado/cast_detail-5069.html"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="img/banner.jpg" alt="">
+  </a>
+</div>
+
 
   <div class="carousel-item">
       <img src="img/banner2.jpg" alt="">
-    </a>
   </div>
 
     <!-- 
@@ -367,6 +432,10 @@ body{
 </div>
 
     <!-- ABOUT -->
+     <h1 class="visually-hidden">
+Ikebukuro Kadoebi Foreign-Friendly Soapland in Tokyo
+</h1>
+
   <h2 id="about" class="section-title">ABOUT US</h2>
     <div class="about fs-6 text-center">
       Only a 5-minute walk from Ikebukuro East Exit.
@@ -375,18 +444,27 @@ A diverse lineup is always on duty, ready to satisfy both newcomers and seasoned
 Information about other Kadoebi Group venues is also available. We look forward to welcoming you!
     </div>
 
-   <!-- BANNERS2 -->
+<!-- BANNERS2 -->
 <div class="px-3 pb-4">
   <div class="d-grid gap-3">
-    <a href="https://www.kadoebi.co.jp/ikekado/n_schedule-1-1.html" class="banner-link">
+
+    <a href="https://www.kadoebi.co.jp/ikekado/n_schedule-1-1.html"
+       class="banner-link"
+       target="_blank"
+       rel="noopener noreferrer">
       <img src="img/lineup.jpg" alt="Today's lineup">
     </a>
 
-    <a href="https://www.kadoebi.co.jp/ikekado/n_schedule-1-1.html" class="banner-link">
-      <img src="img/lineup.jpg" alt="Companions">
+    <a href="https://www.kadoebi.co.jp/ikekado/n_schedule-1-1.html"
+       class="banner-link"
+       target="_blank"
+       rel="noopener noreferrer">
+      <img src="img/allcompanions.jpg" alt="Companions">
     </a>
+
   </div>
 </div>
+
 
 
 <!-- CAROUSEL (Bootstrap) -->
@@ -418,7 +496,7 @@ Information about other Kadoebi Group venues is also available. We look forward 
 
     </div>
 
-    <!-- ドット（画像の下） -->
+    <!-- ドット -->
     <div class="carousel-indicators position-static justify-content-center gap-1 mt-3 mb-0">
 
       <button type="button"
@@ -440,7 +518,7 @@ Information about other Kadoebi Group venues is also available. We look forward 
 
     </div>
 
-    <!-- 矢印（アクセシビリティ用・CSSで非表示） -->
+    <!-- 矢印  -->
     <button class="carousel-control-prev" type="button" data-bs-target="#storeCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon"></span>
     </button>
@@ -491,7 +569,7 @@ reservations can only be made in person. Reservations can be made starting the d
       </h2>
       <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
         <div class="accordion-body px-0 pt-0">
-          Yes, we also accept credit card payments. QR code payments are not available.
+          We accept credit cards. (QR payments are not available.)
         </div>
       </div>
     </div>
@@ -556,6 +634,22 @@ reservations can only be made in person. Reservations can be made starting the d
       </div>
     </div>
 
+    <!--  英語管理 -->
+<div class="accordion-item border-top border-bottom-0 border-start-0 border-end-0">
+  <h2 class="accordion-header">
+    <button class="accordion-button collapsed px-0" type="button"
+      data-bs-toggle="collapse" data-bs-target="#faq6">
+      <span class="faq-q">Q.</span> Do you have any staff or companions who speak English?
+    </button>
+  </h2>
+  <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+    <div class="accordion-body px-0 pt-0">
+    Currently, we do not have any staff or companions who can speak English fluently; however, we will do our very best to ensure that every guest enjoys a wonderful and memorable time with us.
+    </div>
+  </div>
+</div>
+
+
   </div>
 </div>
 
@@ -576,8 +670,8 @@ reservations can only be made in person. Reservations can be made starting the d
 
   <div class="info-item">
     <strong>Business Hours</strong><br>
-    9:00 AM – 12:00 AM<br>
-    <span class="last-reception">Last reception at 11:00 PM</span>
+    9:00 – 24:00<br>
+    <span class="last-reception">Last reception at 23:00</span>
   </div>
 
   <div class="info-item">
@@ -589,7 +683,7 @@ reservations can only be made in person. Reservations can be made starting the d
 
   <div class="info-item">
     <strong>Address</strong><br>
-    1-42-13 Higashi-Ikebukuro, Toshima-ku, Tokyo<br>
+    1-43-15 Higashi-Ikebukuro, Toshima-ku, Tokyo<br>
     <span class="access">5-minute walk from Ikebukuro Sta. East Exit (North)</span>
   </div>
 
@@ -607,71 +701,74 @@ reservations can only be made in person. Reservations can be made starting the d
 
 
 
-<!-- CONTACT -->
-<h2 id="contact" class="section-title">CONTACT FORM</h2>
 
-<div class="contact">
+    <!-- CONTACT -->
+    <h2 id="contact" class="section-title">CONTACT FORM</h2>
 
-<p class="contact-lead">
-  If you have any questions, please feel free to contact us.
-</p>
+    <div class="contact">
 
-<p class="contact-note text-center mt-1 mb-5">
-  We do not accept reservations via the contact form.<br>
-  We are also unable to provide information regarding the availability of our cast members.
-</p>
+      <p class="contact-lead">
+        If you have any questions, please feel free to contact us.
+      </p>
 
+      <p class="contact-note text-center mt-1 mb-5">
+        We do not accept reservations via the contact form.<br>
+        We are also unable to provide information regarding the availability of our cast members.
+      </p>
 
-  <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd4g-Jnb9p9569N_2ccfWGpJS1YfIeICllqzaumXPvb3FLZSA/formResponse"
-        method="post"
-        target="hidden_iframe"
-        onsubmit="submitted=true;">
+      <form action="https://docs.google.com/forms/d/e/
+1FAIpQLSdN1P4qiHXTf2RsjSBuZrf8WOpvYuQxjoeSGjZk1bhIJIjfsw
+/formResponse"
+            method="post"
+            target="hidden_iframe"
+            onsubmit="submitted=true;">
 
-    <!-- NAME -->
-    <label class="form-label">
-      Name <span class="required-badge">required</span>
-    </label>
-    <input type="text"
-           name="entry.1506871634"
-           class="form-control mb-3"
-           placeholder="A nickname is also acceptable."
-           required>
+        <!-- NAME -->
+        <label class="form-label">
+          Name <span class="required-badge">required</span>
+        </label>
+        <input type="text"
+               name="entry.1506871634"
+               class="form-control mb-3"
+               placeholder="A nickname is also acceptable."
+               required>
 
-    <!-- EMAIL -->
-    <label class="form-label">
-      Email <span class="required-badge">required</span>
-    </label>
-    <input type="email"
-           name="entry.776611074"
-           class="form-control mb-3"
-           required>
+        <!-- EMAIL -->
+        <label class="form-label">
+          Email <span class="required-badge">required</span>
+        </label>
+        <input type="email"
+               name="entry.776611074"
+               class="form-control mb-3"
+               required>
 
-    <!-- COUNTRY -->
-    <label class="form-label">
-      Your country
-    </label>
-    <input type="text"
-           name="entry.1233253634"
-           class="form-control mb-3">
+        <!-- COUNTRY -->
+        <label class="form-label">
+          Your country
+        </label>
+        <input type="text"
+               name="entry.1233253634"
+               class="form-control mb-3">
 
-    <!-- MESSAGE -->
-    <label class="form-label">
-      Message <span class="required-badge">required</span>
-    </label>
-    <textarea rows="5"
-              name="entry.2071656823"
-              class="form-control mb-3"
-              required></textarea>
+        <!-- MESSAGE -->
+        <label class="form-label">
+          Message <span class="required-badge">required</span>
+        </label>
+        <textarea rows="5"
+                  name="entry.2071656823"
+                  class="form-control mb-3"
+                  required></textarea>
 
-    <!-- SUBMIT -->
-    <button class="btn submit-btn text-white w-50 d-block mx-auto mt-3"
-            type="submit">
-      SUBMIT
-    </button>
+        <!-- SUBMIT -->
+        <button class="btn submit-btn text-white w-50 d-block mx-auto mt-3"
+                type="submit">
+          SUBMIT
+        </button>
 
-  </form>
+      </form>
 
-</div>
+</div><!-- /.contact -->
+
 
 <!-- 送信後thanksページへ -->
 <script>
@@ -686,33 +783,66 @@ function page_transition(){
 
 </div><!-- /.app-shell -->
 
+<!-- Topへ戻る -->
+<button id="backToTop"
+        class="btn back-to-top"
+        type="button"
+        aria-label="Back to top">
+  ↑
+</button>
+
+
+
 <!-- Bootstrap JS (bundle includes Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+
+  // --- Offcanvas menu smooth scroll ---
   const menuEl = document.getElementById("menu");
-  if (!menuEl) return;
+  if (menuEl) {
+    const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(menuEl);
 
-  const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(menuEl);
+    menuEl.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", (e) => {
+        const hash = link.getAttribute("href");
+        const target = document.querySelector(hash);
+        if (!target) return;
 
-  menuEl.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", (e) => {
-      const hash = link.getAttribute("href");
-      const target = document.querySelector(hash);
-      if (!target) return;
+        e.preventDefault();
+        offcanvas.hide();
 
-      e.preventDefault();
-      offcanvas.hide();
-
-      menuEl.addEventListener("hidden.bs.offcanvas", () => {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-        history.replaceState(null, "", hash);
-      }, { once: true });
+        menuEl.addEventListener("hidden.bs.offcanvas", () => {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          history.replaceState(null, "", hash);
+        }, { once: true });
+      });
     });
-  });
+  }
+
+  // --- Back to top ---
+  const btn = document.getElementById("backToTop");
+  if (btn) {
+    const showAfter = 250;
+
+    const toggle = () => {
+      if (window.scrollY > showAfter) btn.classList.add("show");
+      else btn.classList.remove("show");
+    };
+
+    toggle();
+    window.addEventListener("scroll", toggle, { passive: true });
+
+    btn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
 });
 </script>
+
+
 
 </body>
 </html>
