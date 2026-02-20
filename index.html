@@ -86,6 +86,7 @@ body{
   display:block;
 }
 
+
 /* Section title */
 .section-title{
   text-align:center;
@@ -95,6 +96,7 @@ body{
   font-family:'Inter', sans-serif;
   font-size:1.4rem;
   letter-spacing:0.07em;
+  scroll-margin-top: 80px;
 }
 
 
@@ -357,6 +359,12 @@ body{
       <a href="#faq" class="list-group-item list-group-item-action" data-bs-dismiss="offcanvas">FAQ</a>
       <a href="#info" class="list-group-item list-group-item-action" data-bs-dismiss="offcanvas">SHOP INFO</a>
       <a href="#contact" class="list-group-item list-group-item-action" data-bs-dismiss="offcanvas">CONTACT</a>
+    <a href="https://www.kadoebi.co.jp/ikekado"
+   class="list-group-item list-group-item-action"
+   target="_blank"
+   rel="noopener">
+   OFFICIAL WEBSITE
+</a>
     </div>
   </div>
 </div>
@@ -467,69 +475,52 @@ Information about other Kadoebi Group venues is also available. We look forward 
 
 
 
-<!-- CAROUSEL (Bootstrap) -->
-<div class="px-3 pb-4">
 
-  <div id="storeCarousel" class="carousel slide"
-     data-bs-ride="carousel"
-     data-bs-interval="3000"
-     data-bs-pause="false">
+    <!-- 
+    <div class="px-3 pb-4">
+      <div id="storeCarousel" class="carousel slide"
+           data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
 
+        <div class="carousel-inner">
+          <div class="carousel-item active position-relative">
+            <img src="img/s1.jpg" class="d-block w-100" alt="Exterior night view">
+            <div class="carousel-caption-custom">Exterior (Night)</div>
+          </div>
 
-    <!-- 画像 -->
-    <div class="carousel-inner">
+          <div class="carousel-item position-relative">
+            <img src="img/s2.jpg" class="d-block w-100" alt="Exterior daytime view">
+            <div class="carousel-caption-custom">Exterior (Day)</div>
+          </div>
 
-      <div class="carousel-item active position-relative">
-        <img src="img/s1.jpg" class="d-block w-100" alt="Lounge">
-        <div class="carousel-caption-custom">Lounge</div>
+          <div class="carousel-item position-relative">
+            <img src="img/s3.jpg" class="d-block w-100" alt="Reception area">
+            <div class="carousel-caption-custom">Reception Area</div>
+          </div>
+
+          <div class="carousel-item position-relative">
+            <img src="img/s4.jpg" class="d-block w-100" alt="Lounge">
+            <div class="carousel-caption-custom">Lounge</div>
+          </div>
+
+          <div class="carousel-item position-relative">
+            <img src="img/s5.jpg" class="d-block w-100" alt="Private room">
+            <div class="carousel-caption-custom">Private Room</div>
+          </div>
+
+          <div class="carousel-item position-relative">
+            <img src="img/s6.jpg" class="d-block w-100" alt="Shower room">
+            <div class="carousel-caption-custom">Shower Room</div>
+          </div>
+        </div>
+
+       
+        <div id="storeIndicators"
+             class="carousel-indicators position-static justify-content-center gap-1 mt-3 mb-0"></div>
+
       </div>
-
-      <div class="carousel-item position-relative">
-        <img src="img/s1.jpg" class="d-block w-100" alt="Reception area">
-        <div class="carousel-caption-custom">Reception area</div>
-      </div>
-
-      <div class="carousel-item position-relative">
-        <img src="img/s1.jpg" class="d-block w-100" alt="Hallway">
-        <div class="carousel-caption-custom">Hallway</div>
-      </div>
-
     </div>
+   -->
 
-    <!-- ドット -->
-    <div class="carousel-indicators position-static justify-content-center gap-1 mt-3 mb-0">
-
-      <button type="button"
-              data-bs-target="#storeCarousel"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"></button>
-
-      <button type="button"
-              data-bs-target="#storeCarousel"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"></button>
-
-      <button type="button"
-              data-bs-target="#storeCarousel"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"></button>
-
-    </div>
-
-    <!-- 矢印  -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#storeCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-
-    <button class="carousel-control-next" type="button" data-bs-target="#storeCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-
-  </div>
-
-</div>
 
     <!-- SYSTEM -->
    <h2 id="system" class="section-title">SYSTEM</h2>
@@ -796,53 +787,75 @@ function page_transition(){
 <!-- Bootstrap JS (bundle includes Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
 
-  // --- Offcanvas menu smooth scroll ---
-  const menuEl = document.getElementById("menu");
-  if (menuEl) {
-    const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(menuEl);
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
 
-    menuEl.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener("click", (e) => {
-        const hash = link.getAttribute("href");
-        const target = document.querySelector(hash);
-        if (!target) return;
+      // --- Offcanvas menu smooth scroll ---
+      const menuEl = document.getElementById("menu");
+      if (menuEl) {
+        const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(menuEl);
 
-        e.preventDefault();
-        offcanvas.hide();
+        menuEl.querySelectorAll('a[href^="#"]').forEach(link => {
+          link.addEventListener("click", (e) => {
+            const hash = link.getAttribute("href");
+            const target = document.querySelector(hash);
+            if (!target) return;
 
-        menuEl.addEventListener("hidden.bs.offcanvas", () => {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-          history.replaceState(null, "", hash);
-        }, { once: true });
-      });
+            e.preventDefault();
+            offcanvas.hide();
+
+            menuEl.addEventListener("hidden.bs.offcanvas", () => {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+              history.replaceState(null, "", hash);
+            }, { once: true });
+          });
+        });
+      }
+
+      // --- Back to top ---
+      const btn = document.getElementById("backToTop");
+      if (btn) {
+        const showAfter = 250;
+
+        const toggle = () => {
+          if (window.scrollY > showAfter) btn.classList.add("show");
+          else btn.classList.remove("show");
+        };
+
+        toggle();
+        window.addEventListener("scroll", toggle, { passive: true });
+
+        btn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      // --- storeCarousel indicators auto ---
+      const carouselEl = document.getElementById("storeCarousel");
+      const indicatorsEl = document.getElementById("storeIndicators");
+
+      if (carouselEl && indicatorsEl) {
+        const items = carouselEl.querySelectorAll(".carousel-inner .carousel-item");
+        indicatorsEl.innerHTML = "";
+
+        items.forEach((_, i) => {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.setAttribute("data-bs-target", "#storeCarousel");
+          b.setAttribute("data-bs-slide-to", String(i));
+          b.setAttribute("aria-label", `Slide ${i + 1}`);
+
+          if (i === 0) {
+            b.classList.add("active");
+            b.setAttribute("aria-current", "true");
+          }
+          indicatorsEl.appendChild(b);
+        });
+      }
+
     });
-  }
-
-  // --- Back to top ---
-  const btn = document.getElementById("backToTop");
-  if (btn) {
-    const showAfter = 250;
-
-    const toggle = () => {
-      if (window.scrollY > showAfter) btn.classList.add("show");
-      else btn.classList.remove("show");
-    };
-
-    toggle();
-    window.addEventListener("scroll", toggle, { passive: true });
-
-    btn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
-
-});
-</script>
-
-
+  </script>
 
 </body>
 </html>
